@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="container">
+        <h1>Sign up</h1>
+        <form class="col-md-4" action="{% url 'signup_user' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="user_name" class="form-control" placeholder="Username" id="user_name_input">
+            <input type="text" name="password" class="form-control" placeholder="Password">
+            <input type="text" name="repeat_password" class="form-control" placeholder="Repeat password">
+            <input type="text" name="email" class="form-control" placeholder="Email">
+            <div class="btn-group btn-group-lg">
+                <button type="submit" class="btn btn-sm btn-success">Sign up</button>
+            </div>
+        </form>
+        <button class="btn btn-sm btn-danger" id="check_name_btn">Check name</button>
+    </div>
+{% endblock %}
+
+{% block add_scripts %}
+    <script src="{% static "rss_news/login.js" %}"></script>
+{% endblock %}
